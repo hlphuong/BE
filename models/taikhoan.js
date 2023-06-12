@@ -10,25 +10,21 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(50),
       allowNull: false
     },
-    age: {
-      type: DataTypes.INTEGER,
+    phone: {
+      type: DataTypes.STRING(12),
       allowNull: true
     },
-    phone_number: {
-      type: DataTypes.STRING(12),
+    age: {
+      type: DataTypes.INTEGER,
       allowNull: true
     },
     email: {
       type: DataTypes.STRING(100),
       allowNull: false
     },
-    role: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      references: {
-        model: 'phanquyen',
-        key: 'id'
-      }
+    access: {
+      type: DataTypes.STRING(10),
+      allowNull: true
     },
     matkhau: {
       type: DataTypes.STRING(100),
@@ -53,13 +49,6 @@ module.exports = function(sequelize, DataTypes) {
         using: "BTREE",
         fields: [
           { name: "id" },
-        ]
-      },
-      {
-        name: "role",
-        using: "BTREE",
-        fields: [
-          { name: "role" },
         ]
       },
     ]

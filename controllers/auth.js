@@ -40,7 +40,7 @@ const db = require('../utils/db')
 /* LOGGING IN */
  const login = async (req, res) => {
     const { email, password } = req.body;
-    const user = await db.taikhoan.findOne({ email: email });
+    const user = await db.taikhoan.findOne({where:{ email: email }});
     console.log(req.body)
     if (!user) res.status(400).json({ msg: "User does not exist. " });
     console.log(password == user.matkhau)

@@ -22,8 +22,6 @@ function initModels(sequelize) {
   khachhang.hasMany(donhang, { as: "donhangs", foreignKey: "id_KH"});
   ctdonhang.belongsTo(mathang, { as: "id_hang_mathang", foreignKey: "id_hang"});
   mathang.hasMany(ctdonhang, { as: "ctdonhangs", foreignKey: "id_hang"});
-  taikhoan.belongsTo(phanquyen, { as: "role_phanquyen", foreignKey: "role"});
-  phanquyen.hasMany(taikhoan, { as: "taikhoans", foreignKey: "role"});
   donhang.belongsTo(taikhoan, { as: "id_NV_taikhoan", foreignKey: "id_NV"});
   taikhoan.hasMany(donhang, { as: "donhangs", foreignKey: "id_NV"});
 
