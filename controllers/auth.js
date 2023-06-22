@@ -16,9 +16,6 @@ const db = require('../utils/db')
       address,
     } = req.body;
 
-    // const salt = await bcrypt.genSalt();
-    // const passwordHash = await bcrypt.hash(password, salt);
-
     const newUser = new taikhoan({
       name,
       age,
@@ -47,13 +44,17 @@ const db = require('../utils/db')
     if(password == user.matkhau)
     {
       console.log(user.dataValues.id)
-      res.send({"user_id": user.dataValues.id})
+      res.send({"user_id": user.dataValues.id,
+                "user_name":user.dataValues.name,
+                "user_phone":user.dataValues.phone,
+                "user_email":user.dataValues.email,
+                "user_addres":user.dataValues.address,
+                "user_avar":user.dataValues.avar,
+                "user_age": user.dataValues.age,
+                "user_access":user.dataValues.access})
+      console.log(user.dataValues.avar)
     }
     else res.status(400).json({ msg: "Invalid credentials. " });
-
-    // const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
-    // delete user.password;
-    // res.status(200).json({ token, user });
 
 };
 module.exports = {
