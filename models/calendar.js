@@ -1,35 +1,31 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('khachhang', {
+  return sequelize.define('calendar', {
     id: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    name: {
-      type: DataTypes.STRING(200),
+    content: {
+      type: DataTypes.STRING(45),
       allowNull: true
     },
-    age: {
+    date: {
+      type: DataTypes.STRING(45),
+      allowNull: true
+    },
+    id_nv: {
       type: DataTypes.INTEGER,
       allowNull: true
     },
-    sdt: {
-      type: DataTypes.STRING(50),
-      allowNull: true
-    },
-    diem: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    email: {
+    new_tablecol: {
       type: DataTypes.STRING(45),
       allowNull: true
     }
   }, {
     sequelize,
-    tableName: 'khachhang',
+    tableName: 'calendar',
     timestamps: false,
     indexes: [
       {

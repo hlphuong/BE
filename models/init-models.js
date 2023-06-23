@@ -1,4 +1,5 @@
 var DataTypes = require("sequelize").DataTypes;
+var _calendar = require("./calendar");
 var _ctdonhang = require("./ctdonhang");
 var _donhang = require("./donhang");
 var _khachhang = require("./khachhang");
@@ -8,6 +9,7 @@ var _phanquyen = require("./phanquyen");
 var _taikhoan = require("./taikhoan");
 
 function initModels(sequelize) {
+  var calendar = _calendar(sequelize, DataTypes);
   var ctdonhang = _ctdonhang(sequelize, DataTypes);
   var donhang = _donhang(sequelize, DataTypes);
   var khachhang = _khachhang(sequelize, DataTypes);
@@ -26,6 +28,7 @@ function initModels(sequelize) {
   taikhoan.hasMany(donhang, { as: "donhangs", foreignKey: "id_NV"});
 
   return {
+    calendar,
     ctdonhang,
     donhang,
     khachhang,

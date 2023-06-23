@@ -20,8 +20,39 @@ const create = async (req, res) => {
     });
     res.send(mathang);
 }
+
+const update = async (req, res) => {
+    const mathang = await db.mathang.findOne({
+        where: {id: req.params.id}
+    });
+    if(!mathang) res.status(404).send('mathang not found!');
+    else {
+        await db.mathang.update({
+            ...req.body
+        }, {
+            where: {id: req.params.id}
+        });
+        res.send('mathang successfully updated!');
+    }
+}
+
+const deleteById = async (req, res) => {
+    const mathang = await db.mathang.findOne({
+        where: {id: req.params.id}
+    });
+    if(!mathang) res.status(404).send('mathang not found!');
+    else {
+        await db.mathang.destroy({
+            where: {id: req.params.id}
+        });
+        res.send('mathang successfully deleted!');
+    }
+}
 module.exports = {
     get,
     getById,
-    create
+    create,
+    update,
+    deleteById
+
 }
