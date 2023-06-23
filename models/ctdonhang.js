@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true,
       references: {
         model: 'mathang',
-        key: 'id'
+        key: 'ID'
       }
     },
     id_donhang: {
@@ -24,6 +24,10 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     soluong: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    tongtien: {
       type: DataTypes.INTEGER,
       allowNull: true
     }
@@ -41,17 +45,17 @@ module.exports = function(sequelize, DataTypes) {
         ]
       },
       {
-        name: "fk_ctdonhang_1_idx",
-        using: "BTREE",
-        fields: [
-          { name: "id_donhang" },
-        ]
-      },
-      {
-        name: "fk_ctdonhang_2_idx",
+        name: "id_hang",
         using: "BTREE",
         fields: [
           { name: "id_hang" },
+        ]
+      },
+      {
+        name: "id_donhang",
+        using: "BTREE",
+        fields: [
+          { name: "id_donhang" },
         ]
       },
     ]

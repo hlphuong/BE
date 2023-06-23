@@ -9,7 +9,8 @@ module.exports = function(sequelize, DataTypes) {
     },
     time: {
       type: DataTypes.DATE,
-      allowNull: true
+      allowNull: true,
+      defaultValue: Sequelize.Sequelize.fn('current_timestamp')
     },
     id_KH: {
       type: DataTypes.INTEGER,

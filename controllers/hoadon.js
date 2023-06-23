@@ -2,7 +2,14 @@ const db = require('../utils/db')
 
 
 const get = async(req,res) => {
-    const{count,rows} = await db.donhang.findAndCountAll()
+    const{count,rows} = await db.donhang.findAndCountAll({
+        include: [
+            {model: db.khachhang, as: "id_KH_khachhang"},
+            {model: db.ctdonhang, as: "ctdonhangs", include: {
+                model: db.mathang, as: "id_hang_mathang"
+            }}
+        ]
+    })
     res.set('Content-Range', count).send(rows);
 }
 
@@ -16,15 +23,18 @@ const getById = async (req, res) => {
 }
 
 const create = async (req, res) => {
+    console.log(req.body)
     const donhang = await db.donhang.create({
         ...req.body
     });
+    console.log(req.body.ctdonhangs)
     if(typeof(req.body.ctdonhangs) === 'object') {
         const ctdonhang = req.body.ctdonhangs.map(ctdonhang=> {
             const ct = {
                 'id_donhang': donhang.id,
                 'id_hang': ctdonhang.id_hang,
-                'soluong': ctdonhang.soluong
+                'soluong': ctdonhang.soluong,
+                'tongtien': ctdonhang.tongtien
             }
             return ct
         });

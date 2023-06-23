@@ -48,7 +48,7 @@ const db = require('../utils/db')
                 "user_name":user.dataValues.name,
                 "user_phone":user.dataValues.phone,
                 "user_email":user.dataValues.email,
-                "user_addres":user.dataValues.address,
+                "user_address":user.dataValues.address,
                 "user_avar":user.dataValues.avar,
                 "user_age": user.dataValues.age,
                 "user_access":user.dataValues.access})
