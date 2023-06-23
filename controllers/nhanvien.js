@@ -22,8 +22,36 @@ const create = async (req, res) => {
     res.send(taikhoan);
 }
 
+const edit = async (req, res) => {
+    const data = await db.taikhoan.findOne({
+        where: {id: req.params.id}
+    });
+    if(!data) res.status(404).send('taikhoan not found!');
+    else{
+        await db.taikhoan.update({...req.body}, {
+            where: {id: req.params.id}
+        });
+        res.send('taikhoan successfully updated!');
+    }
+}
+
+const deleteById = async (req, res) => {
+    const data = await db.taikhoan.findOne({
+        where: {id: req.params.id}
+    });
+    if(!data) res.status(404).send('taikhoan not found!');
+    else{
+        await db.taikhoan.destroy({
+            where: {id: req.params.id}
+        });
+        res.send('taikhoan successfully deleted!');
+    }
+}
+
 module.exports = {
     get,
     getById,
-    create
+    create,
+    edit,
+    deleteById
 }

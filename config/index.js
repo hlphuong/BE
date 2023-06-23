@@ -6,7 +6,7 @@ const config = {
         database: 'grocery',
         username: 'root',
         port:3306,
-        password: '',
+        password: 'Ktung01@',
         host: 'localhost',
         dialect: 'mysql',
         pool: {
