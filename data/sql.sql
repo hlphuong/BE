@@ -18,6 +18,31 @@ USE `grocery`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `calendar`
+--
+
+DROP TABLE IF EXISTS `calendar`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `calendar` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `content` varchar(45) DEFAULT NULL,
+  `date` varchar(45) DEFAULT NULL,
+  `id_nv` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `calendar`
+--
+
+LOCK TABLES `calendar` WRITE;
+/*!40000 ALTER TABLE `calendar` DISABLE KEYS */;
+/*!40000 ALTER TABLE `calendar` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `ctdonhang`
 --
 
@@ -85,7 +110,7 @@ DROP TABLE IF EXISTS `khachhang`;
 CREATE TABLE `khachhang` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(200) DEFAULT NULL,
-  `dob` int(11) DEFAULT NULL,
+  `age` int(11) DEFAULT NULL,
   `sdt` varchar(50) DEFAULT NULL,
   `diem` int(11) DEFAULT NULL,
   `email` varchar(45) DEFAULT NULL,
@@ -99,7 +124,7 @@ CREATE TABLE `khachhang` (
 
 LOCK TABLES `khachhang` WRITE;
 /*!40000 ALTER TABLE `khachhang` DISABLE KEYS */;
-INSERT INTO `khachhang` VALUES (1,'Nguyen Van A',11,'00221',1,'4433'),(2,'Nguyen B',14,'903024',1,'11144'),(3,'Tran C',22,'09422',1,'4443'),(4,'Le Thi B',25,'94022',1,'2222'),(5,NULL,NULL,'18402',1,'2334');
+INSERT INTO `khachhang` VALUES (1,'Nguyen Van A',11,'00221',1,'4433'),(2,'Nguyen B',14,'903024',1,'11144'),(3,'Tran C',22,'09422',1,'4443'),(4,'Le Thi B',25,'94022',1,'2222'),(5,'Nguyen C',34,'18402',1,'2334');
 /*!40000 ALTER TABLE `khachhang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -128,7 +153,7 @@ CREATE TABLE `mathang` (
 
 LOCK TABLES `mathang` WRITE;
 /*!40000 ALTER TABLE `mathang` DISABLE KEYS */;
-INSERT INTO `mathang` VALUES (1,'Hộp quà',23000,'../../assets/user.png','việt nhật',300,'hộp'),(2,'Ốp điện thoại',30000,'05.jpg','akolo',230,'phụ kiện điện thoại'),(3,'Tai nghe',100000,NULL,'sony',120,'phụ kiện điện thoại');
+INSERT INTO `mathang` VALUES (1,'Hộp quà',23000,'../../assets/user.png','việt nhật',300,'hộp'),(2,'Ốp điện thoại',30000,'05.jpg','akolo',230,'phụ kiện điện thoại'),(3,'Tai nghe',100000,NULL,'sony',120,'phụ kiện điện thoại'),(2147483647,'rockstar',434534,'undefined','rockstar',NULL,'');
 /*!40000 ALTER TABLE `mathang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -208,7 +233,7 @@ CREATE TABLE `taikhoan` (
 
 LOCK TABLES `taikhoan` WRITE;
 /*!40000 ALTER TABLE `taikhoan` DISABLE KEYS */;
-INSERT INTO `taikhoan` VALUES (0,'Phương','0778559928',4,'tk01@gmail.com','admin','1',NULL,NULL),(1,'Hoang Linh Phuong','0222999333',12,'tk02@gmail.com','user','1',NULL,NULL),(2,'Nguyen Thi Tung','0002223333',12,'tk03@gmail.com','manager','1',NULL,NULL),(3,'Cersei Lannister','0003933848',20,'tk04@gmail.com','user','1',NULL,NULL),(11,'Phương','0778559928',13,'tk05@gmail.com','user','1',NULL,NULL),(12,'Phương','0778559928',12,'tk06@gmail.com','manager','1',NULL,NULL),(13,'Phương','0778559928',5,'tk07@gmail.com','admin','1',NULL,NULL),(14,'Hoang Phuong','0778559928',12,'tk08@gmail.com','user','1',NULL,NULL),(15,'Hoang Phuong','0778559928',12,'tk08@gmail.com','manager','1',NULL,NULL),(16,'Hoang Phuong','0778559928',12,'tk10@gmail.com','user','1',NULL,NULL),(17,'Hoang Phuong','0778559928',12,'tk11@gmail.com','user','1',NULL,NULL),(18,'Hoang Phuong','0778559928',12,'tk12@gmail.com','user','1',NULL,NULL),(19,'Hoang Phuong','0778559928',12,'tk13@gmail.com','user','1',NULL,NULL),(20,'Hoang Phuong','0778559928',12,'tk14@gmail.com','user','1',NULL,NULL),(21,'Hoang Phuong','0778559928',12,'tk15@gmail.com','user','1',NULL,NULL);
+INSERT INTO `taikhoan` VALUES (0,'Phương','0778559928',4,'tk01@gmail.com','admin','1','07.jpg',NULL),(1,'Hoang Linh Phuong','0222999333',12,'tk02@gmail.com','user','1','12.jpg',NULL),(2,'Nguyen Thi Tung','0002223333',12,'tk03@gmail.com','manager','1','14.jpg',NULL),(3,'Cersei Lannister','0003933848',20,'tk04@gmail.com','user','1','32.jpg',NULL),(11,'Phương','0778559928',13,'tk05@gmail.com','user','1','33.jpg',NULL),(12,'Phương','0778559928',12,'tk06@gmail.com','manager','1','09.jpg',NULL),(13,'Phương','0778559928',5,'tk07@gmail.com','admin','1',NULL,NULL),(14,'Hoang Phuong','0778559928',12,'tk08@gmail.com','user','1',NULL,NULL),(15,'Hoang Phuong','0778559928',12,'tk08@gmail.com','manager','1',NULL,NULL),(16,'Hoang Phuong','0778559928',12,'tk10@gmail.com','user','1',NULL,NULL),(17,'Hoang Phuong','0778559928',12,'tk11@gmail.com','user','1',NULL,NULL),(18,'Hoang Phuong','0778559928',12,'tk12@gmail.com','user','1',NULL,NULL),(19,'Hoang Phuong','0778559928',12,'tk13@gmail.com','user','1',NULL,NULL),(20,'Hoang Phuong','0778559928',12,'tk14@gmail.com','user','1',NULL,NULL),(21,'Hoang Phuong','0778559928',12,'tk15@gmail.com','user','1',NULL,NULL),(2147483647,'undefined',NULL,22,'Hlphuong150701@gmail.com','Học viện k','123456',NULL,NULL);
 /*!40000 ALTER TABLE `taikhoan` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -221,4 +246,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-22  8:59:26
+-- Dump completed on 2023-06-23  1:20:41

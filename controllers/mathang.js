@@ -40,6 +40,11 @@ const deleteById = async (req, res) => {
     });
     if(!data) res.status(404).send('mathang not found!');
     else{
+    const mathang = await db.mathang.findOne({
+        where: {id: req.params.id}
+    });
+    if(!mathang) res.status(404).send('mathang not found!');
+    else {
         await db.mathang.destroy({
             where: {id: req.params.id}
         });
